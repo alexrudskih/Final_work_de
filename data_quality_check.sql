@@ -1,6 +1,6 @@
 --dq
 --DQ_1
---Отрицательные значения в основных сущностях
+--РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РІ РѕСЃРЅРѕРІРЅС‹С… СЃСѓС‰РЅРѕСЃС‚СЏС…
 INSERT INTO nds.dq_result (
 		check_name,kind_of_row,total_cnt,err_cnt,dq,invoice_id,kv1,kv2,kv3,kv4,date_check  
 )
@@ -43,7 +43,7 @@ where err_flg = 1
 ;
 
 --DQ_2 
---Проверка выбросов в рейтинге (0-10)
+--РџСЂРѕРІРµСЂРєР° РІС‹Р±СЂРѕСЃРѕРІ РІ СЂРµР№С‚РёРЅРіРµ (0-10)
 INSERT INTO nds.dq_result (
 		check_name,kind_of_row,total_cnt,err_cnt,dq,invoice_id,kv1,kv2,kv3,kv4,date_check  
 )
@@ -83,7 +83,7 @@ where err_flg = 1
 ;
 
 --DQ_3
---Проверка бизнес-правила: Total = Unit price * Quantity + Tax 5%
+--РџСЂРѕРІРµСЂРєР° Р±РёР·РЅРµСЃ-РїСЂР°РІРёР»Р°: Total = Unit price * Quantity + Tax 5%
 INSERT INTO nds.dq_result (
 		check_name,kind_of_row,total_cnt,err_cnt,dq,invoice_id,kv1,kv2,kv3,kv4,date_check 
 )		
@@ -123,7 +123,7 @@ where err_flg = 1
 ;
 
 --DQ_4 
---Проверка аномалий в датах (будущие даты)
+--РџСЂРѕРІРµСЂРєР° Р°РЅРѕРјР°Р»РёР№ РІ РґР°С‚Р°С… (Р±СѓРґСѓС‰РёРµ РґР°С‚С‹)
 INSERT INTO nds.dq_result (
 		check_name,kind_of_row,total_cnt,err_cnt,dq,invoice_id,kv1,kv2,kv3,kv4,date_check 
 )
