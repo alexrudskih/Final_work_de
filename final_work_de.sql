@@ -1,9 +1,9 @@
---создадим БД
+--СЃРѕР·РґР°РґРёРј Р‘Р”
 drop database final_work_de;
 create database final_work_de;
 
 
---создадим нормализованную схему данных (NDS)
+--СЃРѕР·РґР°РґРёРј РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅСѓСЋ СЃС…РµРјСѓ РґР°РЅРЅС‹С… (NDS)
 create schema nds;
 
 drop table if exists nds.sales;
@@ -14,7 +14,7 @@ drop table if exists nds.payment_types;
 drop table if exists nds.locations;
 drop table if exists dds.sales_fact;
 
---справочник городов и филиалов
+--СЃРїСЂР°РІРѕС‡РЅРёРє РіРѕСЂРѕРґРѕРІ Рё С„РёР»РёР°Р»РѕРІ
 CREATE TABLE nds.locations (
     location_id SERIAL PRIMARY KEY,
     branch CHAR(1) NOT NULL,
@@ -22,31 +22,31 @@ CREATE TABLE nds.locations (
     UNIQUE(branch, city)
 );
 
---справочник типов клиентов
+--СЃРїСЂР°РІРѕС‡РЅРёРє С‚РёРїРѕРІ РєР»РёРµРЅС‚РѕРІ
 CREATE TABLE nds.customer_types (
     customer_type_id SERIAL PRIMARY KEY,
     customer_type_name VARCHAR(20) UNIQUE NOT NULL
 );
 
---справочник полов
+--СЃРїСЂР°РІРѕС‡РЅРёРє РїРѕР»РѕРІ
 CREATE TABLE nds.genders (
     gender_id SERIAL PRIMARY KEY,
     gender_name VARCHAR(10) UNIQUE NOT NULL
 );
 
---справочник товарных линий
+--СЃРїСЂР°РІРѕС‡РЅРёРє С‚РѕРІР°СЂРЅС‹С… Р»РёРЅРёР№
 CREATE TABLE nds.product_lines (
     product_line_id SERIAL PRIMARY KEY,
     product_line_name VARCHAR(50) UNIQUE NOT NULL
 );
 
---справочник типов оплаты
+--СЃРїСЂР°РІРѕС‡РЅРёРє С‚РёРїРѕРІ РѕРїР»Р°С‚С‹
 CREATE TABLE nds.payment_types (
     payment_type_id SERIAL PRIMARY KEY,
     payment_method VARCHAR(20) UNIQUE NOT NULL
 );
 
---таблица фактов
+--С‚Р°Р±Р»РёС†Р° С„Р°РєС‚РѕРІ
 CREATE TABLE nds.sales (
     invoice_id VARCHAR(20) PRIMARY KEY,
     location_id INTEGER REFERENCES nds.locations(location_id),
@@ -66,12 +66,12 @@ CREATE TABLE nds.sales (
     sale_time TIME NOT NULL
 );
 
---создание схемы DDS
+--СЃРѕР·РґР°РЅРёРµ СЃС…РµРјС‹ DDS
 CREATE SCHEMA dds;
 
 drop table if exists dds.sales_fact;
 
--- Таблица фактов (DDS)
+-- РўР°Р±Р»РёС†Р° С„Р°РєС‚РѕРІ (DDS)
 CREATE TABLE dds.sales_fact (
     fact_id SERIAL PRIMARY KEY,
     invoice_id VARCHAR(20),
@@ -116,7 +116,7 @@ CREATE TABLE nds.dq_result (
 );
 
 
---создание пользователя для python и предоставление ему доступа
+--СЃРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РґР»СЏ python Рё РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРµ РµРјСѓ РґРѕСЃС‚СѓРїР°
 create role python_user with login;
 alter role python_user with password 'python_pass';
 grant connect on database final_work_de to python_user; 
@@ -129,7 +129,7 @@ GRANT ALL ON ALL TABLES IN SCHEMA dds TO python_user;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA dds TO python_user;
 
 
---проверка заполнения таблиц данными
+--РїСЂРѕРІРµСЂРєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚Р°Р±Р»РёС† РґР°РЅРЅС‹РјРё
 select * from nds.locations;
 select * from nds.customer_types;
 select * from nds.genders;
@@ -142,7 +142,7 @@ select * from dds.sales_fact;
 
 
 
---удаление данных из таблиц
+--СѓРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С… РёР· С‚Р°Р±Р»РёС†
 delete from nds.sales;
 
 delete from nds.locations;
