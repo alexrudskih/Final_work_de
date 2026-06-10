@@ -62,5 +62,8 @@
 Построение дашборда сделано в Power BI.
 
 Скрин дашборда
+<img width="1285" height="724" alt="Dashboard_screen_2" src="https://github.com/user-attachments/assets/626cb92d-543a-4153-b18e-4b684fc3f5cc" />
 
+[Дашборд в формате pdf](./Dashboard.pdf)
 
+[Дашборд в формате pbix](./Dashboard.pbix)
